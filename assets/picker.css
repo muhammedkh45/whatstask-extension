@@ -1,0 +1,14 @@
+/* assets/picker.css */
+/* Hover Highlight effect for WhatsApp messages */
+
+.whatstask-hoverable {
+  cursor: crosshair !important;
+  transition: outline 0.15s ease, background-color 0.15s ease;
+}
+
+.whatstask-hoverable:hover {
+  outline: 2px solid #25d366 !important;
+  outline-offset: 4px !important;
+  border-radius: 8px !important;
+  background-color: rgba(37, 211, 102, 0.08) !important;
+}

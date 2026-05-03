@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WaTask</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <button id="pickBtn" class="logo-button" type="button" title="Pick a message from WhatsApp">
+        <span class="logo-tile">
+          <img src="../icons/icon48.png" alt="">
+        </span>
+        <span class="brand">WaTask</span>
+      </button>
+      <div class="header-actions">
+        <button id="pick-msg-btn" class="icon-btn" type="button" title="Pick a message" aria-label="Pick a message"></button>
+        <button id="theme-btn" class="icon-btn" type="button" title="Toggle theme" aria-label="Toggle theme"></button>
+        <button id="settings-btn" class="icon-btn" type="button" title="Settings" aria-label="Settings"></button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section id="state-loading" class="scanning-state hidden">
+        <p class="scan-title">Scanning conversations...</p>
+        <div class="scan-bubbles">
+          <div class="scan-row scan-delay-0">
+            <div class="avatar">S</div>
+            <div>
+              <span class="scan-contact">Sarah Chen</span>
+              <div class="typing-bubble">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <div class="scan-row scan-delay-1">
+            <div class="avatar">P</div>
+            <div>
+              <span class="scan-contact">Project Team</span>
+              <div class="typing-bubble">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <div class="scan-row scan-delay-2">
+            <div class="avatar">M</div>
+            <div>
+              <span class="scan-contact">Mom</span>
+              <div class="typing-bubble">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scan-footer">
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <p>Analyzing messages for tasks & events...</p>
+        </div>
+      </section>
+
+      <section id="state-default" class="results-state hidden">
+        <div class="filter-bar">
+          <button class="filter-pill active" type="button" data-filter="all">All</button>
+          <button class="filter-pill" type="button" data-filter="event">Events</button>
+          <button class="filter-pill" type="button" data-filter="task">Tasks</button>
+          <button class="filter-pill" type="button" data-filter="reminder">Reminders</button>
+        </div>
+        <div id="detected-list" class="results-list"></div>
+      </section>
+
+      <section id="state-settings" class="settings-state hidden">
+        <div class="settings-card">
+          <div class="settings-row">
+            <span>Google account</span>
+            <strong id="account-status">Checking...</strong>
+          </div>
+          <button id="connect-google-btn" class="primary-btn" type="button">Connect Google</button>
+          <button id="reconnect-google-btn" class="secondary-btn" type="button">Reconnect / switch account</button>
+          <label>Default calendar<div id="calendar-select" class="custom-select"></div></label>
+          <label>Default task list<div id="tasklist-select" class="custom-select"></div></label>
+          <button id="save-settings-btn" class="primary-btn" type="button">Save settings</button>
+          <button id="back-settings-btn" class="secondary-btn" type="button">Back</button>
+          <p id="settings-status" class="inline-status hidden"></p>
+
+          <div class="api-key-section">
+            <div class="api-key-header">
+              <span>Your own API key <small>(optional)</small></span>
+              <a href="https://aistudio.google.com/apikey" target="_blank" class="get-key-link">Get free key →</a>
+            </div>
+            <input id="user-gemini-key" type="password" placeholder="Paste Gemini API key" autocomplete="off" />
+            <button id="save-api-key-btn" class="secondary-btn" type="button">Save API key</button>
+          </div>
+
+          <div class="support-row">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:watask.support@gmail.com">watask.support@gmail.com</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="state-error" class="error-state hidden">
+        <div class="error-icon">!</div>
+        <p id="error-message">Something went wrong.</p>
+        <button id="retry-btn" class="secondary-btn" type="button">Try Again</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://www.tiptea.app/#/u/muhammad" target="_blank" title="Donate"><i class="fa-solid fa-mug-hot"></i></a>
+        <a href="https://modev.space/" target="_blank" title="Portfolio"><i class="fa-solid fa-globe"></i></a>
+        <a href="https://linkedin.com/in/muhammadkhallid" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/Muhammed_khalld" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/muhammedkh45" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/modev.builds" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </footer>
+
+    <div id="toast-root" class="toast-root"></div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
