@@ -223,7 +223,7 @@ async function analyzeWithOpenRouter(text, messageDate, chatName, apiKey) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "google/gemini-2.0-flash-exp:free",
+      model: "openai/gpt-oss-120b:free",
       messages: [
         { role: "system", content: systemText },
         { role: "user", content: `Extract the actionable item from this message:\n\n"${text}"` },
