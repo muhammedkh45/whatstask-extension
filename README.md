@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="whatstask-extension/icons/icon128.png" alt="WaTask Logo" width="128" height="128" />
+  <img src="icons/icon128.png" alt="WaTask Logo" width="128" height="128" />
 </p>
 
 <h1 align="center">WaTask</h1>
